@@ -57,11 +57,11 @@ jobs:
         sudo -E tar -xvf upx-$PUX_V-amd64_linux.tar.xz
         sudo -E mv upx-$PUX_V-amd64_linux/upx /usr/bin
         sudo -E rm -rf upx-*-amd64_linux*
-        #sudo -E mkdir amd64
+        sudo -E mkdir amd64
         sudo -E mkdir arm64
-        #cd /workdir/amd64
-        #sudo -E wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_amd64.tar.gz
-        #sudo -E tar zxvf AdGuardHome_linux_*.tar.gz
+        cd /workdir/amd64
+        sudo -E wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_amd64.tar.gz
+        sudo -E tar zxvf AdGuardHome_linux_*.tar.gz
         cd /workdir/arm64
         sudo -E wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_arm64.tar.gz
         sudo -E tar zxvf AdGuardHome_linux_*.tar.gz
@@ -69,11 +69,11 @@ jobs:
     - name: upx
       id: compile
       run: |
-        #cd /workdir/amd64
-        #sudo -E upx -v --best --ultra-brute  /workdir/amd64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_amd64
+        cd /workdir/amd64
+        sudo -E upx -v --best --ultra-brute  /workdir/amd64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_amd64
         cd /workdir/arm64
         sudo -E upx -v --best --ultra-brute  /workdir/arm64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_arm64
-        #sudo -E rm -rf /workdir/amd64
+        sudo -E rm -rf /workdir/amd64
         sudo -E rm -rf /workdir/arm64
 
     - name: Upload AdGuardHome
