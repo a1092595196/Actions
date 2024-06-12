@@ -49,18 +49,15 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
         sudo timedatectl set-timezone "$TZ"
 
-    - name: Download upx
+    - name: Download
       working-directory: /workdir
       run: |
         df -hT $PWD
         sudo -E wget https://github.com/upx/upx/releases/download/v$PUX_V/upx-$PUX_V-amd64_linux.tar.xz
-        sudo -E tar -xvf upx-*-amd64_linux.tar.xz
-        sudo -E mv upx-*-amd64_linux/upx /usr/bin
+        sudo -E tar -xvf upx-$PUX_V-amd64_linux.tar.xz
+        sudo -E mv upx-$PUX_V-amd64_linux/upx /usr/bin
         rm -rf upx-*-amd64_linux*
         mkdir amd64 arm64
-
-    - name: Download AdGuardHome
-      run: |
         cd /workdir/amd64
         https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_amd64.tar.gz
         tar zxvf AdGuardHome_linux_*.tar.gz
