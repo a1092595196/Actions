@@ -60,7 +60,6 @@ jobs:
         sudo -E mv upx-*-amd64_linux/upx /usr/bin
         rm -rf upx-*-amd64_linux*
         mkdir amd64 arm64
-        ln -sf /workdir/amd64 $GITHUB_WORKSPACE/openwrt
 
     - name: Download AdGuardHome
       run: |
@@ -75,9 +74,9 @@ jobs:
       id: compile
       run: |
         cd /workdir/amd64
-        upx --best --ultra-brute  ./AdGuardHome/AdGuardHome -o ../AdGuardHome_amd64
+        upx --best --ultra-brute  /workdir/amd64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_amd64
         cd /workdir/arm64
-        upx --best --ultra-brute  ./AdGuardHome/AdGuardHome -o ../AdGuardHome_arm64
+        upx --best --ultra-brute  /workdir/arm64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_arm64
         rm -rf /workdir/amd64
         rm -rf /workdir/arm64
 
