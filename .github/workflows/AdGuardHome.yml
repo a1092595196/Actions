@@ -70,9 +70,9 @@ jobs:
       id: compile
       run: |
         cd /workdir/amd64
-        sudo -E upx -v --best --ultra-brute  /workdir/amd64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_amd64
+        sudo -E upx --best --ultra-brute  /workdir/amd64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_amd64
         cd /workdir/arm64
-        sudo -E upx -v --best --ultra-brute  /workdir/arm64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_arm64
+        sudo -E upx --best --ultra-brute  /workdir/arm64/AdGuardHome/AdGuardHome -o /workdir/AdGuardHome_arm64
         sudo -E rm -rf /workdir/amd64
         sudo -E rm -rf /workdir/arm64
 
