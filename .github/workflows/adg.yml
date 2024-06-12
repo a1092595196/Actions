@@ -59,10 +59,10 @@ jobs:
         rm -rf upx-*-amd64_linux*
         mkdir amd64 arm64
         cd /workdir/amd64
-        https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_amd64.tar.gz
+        wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_amd64.tar.gz
         tar zxvf AdGuardHome_linux_*.tar.gz
         cd /workdir/arm64
-        https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_arm64.tar.gz
+        wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v$ADG_V/AdGuardHome_linux_arm64.tar.gz
         tar zxvf AdGuardHome_linux_*.tar.gz
 
     - name: upx
