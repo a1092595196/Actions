@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: AdGuardHome_beta PUX
+name: AdGuardHome PUX
 
 on:
   repository_dispatch:
